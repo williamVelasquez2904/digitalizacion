@@ -1,5 +1,20 @@
 <?php
 
+/* Inicio funcion subir archivo */
+// Sube el archivo via FTP
+function subir_archivo($conn_id,$remote_file, $file){
+    // cargar un archivo
+    if (ftp_put($conn_id, $remote_file, $file)) {
+      echo "se ha copiado $file con éxito\n";
+      echo '<hr>';
+    } else {
+      echo "Hubo un problema durante la transferencia de $file\n";
+    }
+
+}
+/* Fin funcion subir archivo */
+
+
 function redimensionar_imagen($nombreimg, $rutaimg, $xmax, $ymax){  
         $ext = explode(".", $nombreimg);  
         $ext = $ext[count($ext)-1];  
@@ -35,12 +50,6 @@ function redimensionar_imagen($nombreimg, $rutaimg, $xmax, $ymax){
     }
     
  
-
-
-
-
-
-
 //$imagefile = 'baterias.jpg';
 
 
